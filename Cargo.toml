@@ -1,0 +1,27 @@
+[package]
+name = "auth-rs"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = 3
+
+[dependencies]
+actix-web = "4.9.0"
+actix-web-httpauth = "0.8.2"
+serde = { version = "1.0.214", features = ["derive"]}
+serde_json = "1.0.132"
+tokio = {version = "1.41.0", features = ["full"]}
+sqlx = {version = "0.8.2", features = ["runtime-tokio-rustls", "postgres", "uuid", "time"]}
+uuid = {version = "1.11.0", features = ["serde","v4"]}
+rand = "0.8.5"
+rust-argon2 = "2.1.0"
+dotenv = "0.15.0"
+tracing = "0.1.40"
+tracing-subscriber = {version = "0.3.18", features = ["fmt", "time", "env-filter"]}
+time = {version = "0.3.36", features = ["serde"]}
+num_cpus = "1.16.0"
+moka = {version = "0.12.8", features = ["future"]}
