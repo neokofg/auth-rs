@@ -24,4 +24,3 @@ tracing = "0.1.40"
 tracing-subscriber = {version = "0.3.18", features = ["fmt", "time", "env-filter"]}
 time = {version = "0.3.36", features = ["serde"]}
 num_cpus = "1.16.0"
-moka = {version = "0.12.8", features = ["future"]}

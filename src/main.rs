@@ -81,14 +81,14 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .wrap(actix_web::middleware::Compress::default())
-            .app_data(web::Data::new(pool.clone()))
+                .app_data(web::Data::new(pool.clone()))
             .app_data(web::Data::new(auth_service.clone()))
             .app_data(web::Data::new(user_service.clone()))
+            .app_data(web::Data::new(token_service.clone()))
             .configure(configure_routes)
             .app_data(web::JsonConfig::default()
                 .limit(4096)
                 .error_handler(|err, _| {
-                    // Быстрая обработка ошибок
                     actix_web::error::InternalError::from_response(
                         err, HttpResponse::BadRequest().finish()
                     ).into()

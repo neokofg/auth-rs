@@ -1,4 +1,4 @@
-use actix_web::web;
+use actix_web::{web};
 use crate::http::controllers::auth_controllers::{login, logout, register};
 use crate::http::controllers::user_controllers::get_user;
 
